@@ -82,17 +82,17 @@ public class TestRunner
             Throwable cause = e.getCause();
             if (cause instanceof AssertionError) 
             {
-                testsFailed.incrementAndGet(); // Test failed due to assertion error
+                testsFailed.incrementAndGet();
             } 
             else 
             {
-                e.printStackTrace(); // Some other error occurred
+                e.printStackTrace();
                 testsFailed.incrementAndGet();
             }
         } 
         catch (Exception e) 
         {
-            e.printStackTrace(); // Catch other exceptions like instantiation or method access issues
+            e.printStackTrace();
             testsFailed.incrementAndGet();
         }
     }
