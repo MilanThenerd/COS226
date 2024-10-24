@@ -7,4 +7,4 @@ compile:
 	javac *.java
 
 run:
-	java Main
+	java -ea Main
