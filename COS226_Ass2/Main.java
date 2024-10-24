@@ -2,7 +2,7 @@ public class Main
 {
   public static void main(String[] args) 
   {
-    int amount = 10;
+    int amount = 1;
     long totalTime = 0;
     for(int i = 0 ; i < amount ; i++)
     {

@@ -1,3 +1,4 @@
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -76,8 +77,22 @@ public class TestRunner
             method.invoke(instance);
             testsPassed.incrementAndGet();
         } 
+        catch (InvocationTargetException e) 
+        {
+            Throwable cause = e.getCause();
+            if (cause instanceof AssertionError) 
+            {
+                testsFailed.incrementAndGet(); // Test failed due to assertion error
+            } 
+            else 
+            {
+                e.printStackTrace(); // Some other error occurred
+                testsFailed.incrementAndGet();
+            }
+        } 
         catch (Exception e) 
         {
+            e.printStackTrace(); // Catch other exceptions like instantiation or method access issues
             testsFailed.incrementAndGet();
         }
     }
